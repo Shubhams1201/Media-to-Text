@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Media to Text</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🎤 Video/Audio to Text Converter</h1>
+    <form method="POST">
+        <input type="text" name="video_url" placeholder="Paste audio/video link here" required>
+        <button type="submit">Convert</button>
+    </form>
+</body>
+</html>
