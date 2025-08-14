@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Transcription Preview</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Transcription</h1>
+    <div id="text-box">
+        <p>{{ transcription }}</p>
+    </div>
+    <button id="saveImage">💾 Save as Image</button>
+
+    <script>
+        document.getElementById("saveImage").addEventListener("click", function() {
+            html2canvas(document.querySelector("#text-box")).then(canvas => {
+                let link = document.createElement("a");
+                link.download = "transcription.png";
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        });
+    </script>
+</body>
+</html>
